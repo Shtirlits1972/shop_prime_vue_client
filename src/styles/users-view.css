@@ -1,0 +1,38 @@
+.users-table__email,
+.users-table__password {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.users-table__role {
+  text-transform: capitalize;
+}
+
+.users-table__role--admin {
+  font-weight: 600;
+  color: var(--blue-600, #2563eb);
+}
+
+.users-table__role--user {
+  color: var(--text-color);
+}
+
+.approval-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.approval-badge--yes {
+  background-color: var(--green-100, #dcfce7);
+  color: var(--green-700, #15803d);
+}
+
+.approval-badge--no {
+  background-color: var(--red-100, #fee2e2);
+  color: var(--red-700, #b91c1c);
+}

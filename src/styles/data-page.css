@@ -1,0 +1,30 @@
+.data-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.data-page__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.data-page__title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.data-page__subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--text-color-secondary);
+}
+
+.data-page__error {
+  margin: 0;
+  color: var(--red-500, #f87171);
+}

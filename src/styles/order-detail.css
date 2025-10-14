@@ -1,0 +1,20 @@
+.order-detail table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.order-detail th {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.order-detail td {
+  padding: 0.5rem;
+}
+
+.order-detail .actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

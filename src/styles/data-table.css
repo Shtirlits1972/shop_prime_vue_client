@@ -1,0 +1,43 @@
+.data-table {
+  overflow: hidden;
+}
+
+.data-table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.data-table-actions .p-button {
+  min-width: 10rem;
+}
+
+.data-table-empty {
+  display: inline-block;
+  padding: 1.5rem 0;
+  color: var(--text-color-secondary);
+}
+
+/* Общий контейнер кнопок в заголовке таблиц */
+.data-table-header-actions {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Унифицируем размеры кнопок в заголовке */
+.data-table-header-button.p-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--data-table-header-button-width, 12rem);
+  min-inline-size: var(--data-table-header-button-width, 12rem);
+  max-inline-size: var(--data-table-header-button-width, 12rem);
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  white-space: nowrap;
+}
