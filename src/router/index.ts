@@ -5,6 +5,7 @@ import RegisterView from '../views/RegisterView.vue'
 import CategoryView from '../views/CategoryView.vue'
 import ProductView from '../views/ProductView.vue'
 import OrderHeadView from '../views/OrderHeadView.vue'
+import UsersView from '../views/UsersView.vue'
 import { useAuth } from '../stores/auth'
 
 const router = createRouter({
@@ -39,6 +40,24 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/users',
+      name: 'users',
+      component: UsersView,
+      meta: { requiresAuth: true, requiresAdmin: true },
+    },
+    {
+      path: '/orderdetail/:OrderId?', //  "OrderId?"
+      name: 'OrderDetail',
+      component: () => import('@/views/OrderDetailView.vue'),
+      props: (route) => {
+        const raw = Array.isArray(route.params.OrderId) ? route.params.OrderId[0] : route.params.OrderId
+        const fromQuery = Array.isArray(route.query?.OrderId) ? route.query?.OrderId[0] : route.query?.OrderId
+        const normalized = raw ?? fromQuery ?? '0'
+        const parsed = Number.parseInt(normalized, 10)
+        return { OrderId: Number.isFinite(parsed) ? parsed : 0 }
+      },
+    },
+    {
       path: '/login',
       name: 'login',
       component: LoginView,
@@ -64,6 +83,11 @@ router.beforeEach(async (to, from, next) => {
       name: 'login',
       query: { redirect: to.fullPath },
     })
+    return
+  }
+
+  if (to.meta?.requiresAdmin && auth.role.value !== 'admin') {
+    next({ name: 'home' })
     return
   }
 

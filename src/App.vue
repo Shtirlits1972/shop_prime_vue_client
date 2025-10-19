@@ -10,6 +10,7 @@ const loggingOut = ref(false)
 const isAuthenticated = computed(() => auth.isAuthenticated.value)
 const userName = computed(() => auth.userName.value || 'пользователь')
 const isLoading = computed(() => auth.isLoading.value)
+const isAdmin = computed(() => auth.role.value === 'admin')
 
 onMounted(() => {
   auth.initialize()
@@ -64,6 +65,13 @@ async function handleLogoutClick() {
           to="/orders"
         >
           Orders
+        </RouterLink>
+        <RouterLink
+          v-if="isAuthenticated && isAdmin"
+          class="app__nav-link"
+          to="/users"
+        >
+          Users
         </RouterLink>
       </nav>
       <div class="app__auth">

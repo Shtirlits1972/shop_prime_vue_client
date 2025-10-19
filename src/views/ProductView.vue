@@ -910,15 +910,15 @@ onMounted(async () => {
       @cell-edit-complete="handleCellEditComplete">
       <template #header>
         <div class="product-view__table-header-actions data-table-header-actions">
-          <PrimeButton class="data-table-header-button" label="Add" icon="pi pi-plus" severity="success"
+          <PrimeButton class="data-table-header-button" label="добавить" icon="pi pi-plus" severity="success"
             @click="openCreateDialog" />
-          <PrimeButton class="data-table-header-button" label="Delete" icon="pi pi-trash" severity="danger"
+          <PrimeButton class="data-table-header-button" label="Удалить" icon="pi pi-trash" severity="danger"
             :disabled="!selectedProduct" @click="requestDeleteSelected" />
-          <PrimeButton class="data-table-header-button" label="Edit" icon="pi pi-pencil" severity="warning"
+          <PrimeButton class="data-table-header-button" label="Редактировать" icon="pi pi-pencil" severity="warning"
             :disabled="!selectedProduct" @click="openEditSelected" />
-          <PrimeButton class="data-table-header-button" label="Refresh" icon="pi pi-refresh" severity="secondary"
+          <PrimeButton class="data-table-header-button" label="Обновить" icon="pi pi-refresh" severity="secondary"
             :loading="loading" @click="loadProducts" />
-          <PrimeButton class="data-table-header-button" label="Reset filters" icon="pi pi-filter-slash" text
+          <PrimeButton class="data-table-header-button" label="Сбросить фильтры" icon="pi pi-filter-slash" text
             severity="secondary" @click="resetFilters" />
         </div>
       </template>
@@ -982,7 +982,7 @@ onMounted(async () => {
           <figure class="product-photo product-photo--editable" role="button" tabindex="0"
             @dblclick="openImageEditor(data)" @keyup.enter="openImageEditor(data)">
             <img v-if="resolveImageUrl(data)" :src="resolveImageUrl(data)" :alt="data.productName" loading="lazy" />
-            <span v-else class="product-photo--placeholder">No image</span>
+            <span v-else class="product-photo--placeholder"></span>
           </figure>
         </template>
       </PrimeColumn>
